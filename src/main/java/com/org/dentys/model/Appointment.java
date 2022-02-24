@@ -3,7 +3,8 @@ package com.org.dentys.model;
 import java.util.Date;
 
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.bson.codecs.pojo.annotations.BsonId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,7 +12,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Document(collection = "appointments")
 public class Appointment {
 
-	  @Id
+	@BsonId
+	@JsonIgnore
 	  private String id;
 
 	  @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")

@@ -1,11 +1,14 @@
 package com.org.dentys.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.bson.codecs.pojo.annotations.BsonId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "messages")
 public class Message {
-	  @Id
+	@BsonId
+	@JsonIgnore
 	  private String id;
 	  private String firstname;
 	  private String mobile;

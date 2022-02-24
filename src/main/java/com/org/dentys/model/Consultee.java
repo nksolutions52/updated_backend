@@ -2,6 +2,8 @@ package com.org.dentys.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.bson.codecs.pojo.annotations.BsonId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,7 +15,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Consultee {
 	  @Transient
 	    public static final String SEQUENCE_NUMBER = "employee_sequence";
-	  @Id
+	@BsonId
+	@JsonIgnore
 	  private String id;
 
 	  private String firstname;
