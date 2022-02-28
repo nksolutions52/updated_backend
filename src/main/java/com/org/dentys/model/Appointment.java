@@ -4,6 +4,7 @@ import java.util.Date;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.bson.codecs.pojo.annotations.BsonId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Appointment {
 
 	@BsonId
-	@JsonIgnore
+	@JsonProperty("id")
 	  private String id;
 
 	  @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")

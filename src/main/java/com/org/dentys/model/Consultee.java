@@ -3,6 +3,7 @@ package com.org.dentys.model;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.bson.codecs.pojo.annotations.BsonId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
@@ -16,7 +17,7 @@ public class Consultee {
 	  @Transient
 	    public static final String SEQUENCE_NUMBER = "employee_sequence";
 	@BsonId
-	@JsonIgnore
+	@JsonProperty("id")
 	  private String id;
 
 	  private String firstname;
@@ -50,13 +51,14 @@ private Date datetime;
 	  }
 
 
-
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public static String getSequenceNumber() {
 		return SEQUENCE_NUMBER;
 	}
