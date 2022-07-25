@@ -72,6 +72,7 @@ public class AppointmentController {
 	    	     { 
 	    	    	 Appointment appointmentData = _Appointment.get();
 	    	    	 appointmentData.setAppDate(appointment.getAppDate());
+					 appointmentData.setIsVisited(appointment.getIsVisited());
 	    	    	 appointmentRepository.save(appointmentData);
 	    	    	 return new GateWayResponse<>(HttpStatus.OK, /*ResourceUtil.getValue(language,"Record.Saved.Successfully")*/"Appointment Updated Successfully");
 	    	     }else {

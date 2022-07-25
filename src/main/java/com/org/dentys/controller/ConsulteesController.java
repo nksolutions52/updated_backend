@@ -50,7 +50,7 @@ public class ConsulteesController {
 	 
 	  @PostMapping("/createconsultee")
 	  public GateWayResponse<?> createTutorial(@RequestBody Consultee consultee) {
-	   
+
 		  if ((StringUtils.isEmpty(consultee.getMobile()))||( StringUtils.isEmpty(consultee.getFirstname()))) {
 	            return sendGateWayResponse(HttpStatus.BAD_REQUEST, /*ResourceUtil.getValue(language, ResourceKeys.SITE_NOT_FOUND)*/"Consultee Not Found",false);
 	        }
@@ -94,8 +94,7 @@ public class ConsulteesController {
 	           consuteeOfone.setConsulteeCount(Consultees.size());
 	      }
 	      else
-	    	  consulteesRepository.findByFirstname(firstname).forEach(Consultees::add);
-
+	       consulteesRepository.findConsulteeByFirstnameContains(firstname).forEach(Consultees::add);
 	      if (Consultees.isEmpty()) {
 	      //  return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	        return new GateWayResponse<>(HttpStatus.NO_CONTENT,"Not Found");
